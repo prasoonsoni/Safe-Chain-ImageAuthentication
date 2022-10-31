@@ -2,9 +2,10 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const port = 3000 || process.env.PORT
-
+const connectToDatabase = require('./database/connection')
 app.use(cors())
 app.use(express.json())
+connectToDatabase()
 
 app.get('/', (req, res) => {
     res.send("Image Authentication Backend Working")
